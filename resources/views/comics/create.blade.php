@@ -3,7 +3,8 @@
 @section('content')
 
 <h1 class="mb-5">Aggiungi un nuovo fumetto</h1>
-<form>
+<form action="{{route('comics.store')}}" method="POST">
+    @csrf
     <div class="form-group">
         <label for="title">Titolo</label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo">
@@ -29,7 +30,7 @@
         <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci il prezzo">
     </div>
     <div class="form-group">
-        <label for="description" class="form-label">Example textarea</label>
+        <label for="description" class="form-label">Inserisci la descrizione</label>
         <textarea class="form-control" id="description" name="description" rows="3" placeholder="Inserisci la descrizione"></textarea>
     </div>
     

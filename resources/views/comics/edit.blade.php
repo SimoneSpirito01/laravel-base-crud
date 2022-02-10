@@ -35,7 +35,7 @@
         <textarea class="form-control" id="description" name="description" rows="3" placeholder="Inserisci la descrizione">{{$comic->description}}</textarea>
     </div>
     
-    <button type="submit" class="btn btn-primary mt-3">Invia</button>
+    <button type="submit" class="btn btn-primary mt-3">Modifica</button>
     <button type="button" class="btn btn-danger mt-3 ml-1"><a href="{{route('comics.index')}}" class="text-white">Torna alla tabella</a></button>
   </form>
     

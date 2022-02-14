@@ -42,7 +42,7 @@ class ComicController extends Controller
         $request->validate([
             'title' => 'required|string|max:50|unique:comics',
             'description' => 'required|string',
-            'thumb' => 'required|url',
+            'thumb' => 'required|url|max:200',
             'price' => 'required|numeric|between:1,1000',
             'series' => 'required|string|max:50',
             'sale_date' => 'required|after:2022-01-01',
@@ -108,6 +108,16 @@ class ComicController extends Controller
         // $comic->sale_date = $data['sale_date'];
         // $comic->type = $data['type'];
         // $comic->save();
+
+        $request->validate([
+            'title' => "required|string|max:50|unique:comics,title,{$comic->id}",
+            'description' => 'required|string',
+            'thumb' => 'required|url|max:200',
+            'price' => 'required|numeric|between:1,1000',
+            'series' => 'required|string|max:50',
+            'sale_date' => 'required|after:2017-01-01',
+            'type' => 'required|string|max:20'
+        ]);
 
         $comic->update($data);
 
